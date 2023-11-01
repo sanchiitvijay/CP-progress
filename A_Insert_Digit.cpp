@@ -4,30 +4,22 @@ int main(){
     int t;
     cin>>t;
     for(int i = 0; i<t; i++) {
-        int d,n;
+        int d;
+        char n;
         cin>>d>>n;
         string s;
         cin>>s;
 
-        bool flag = true;
-        if((s[0]-'0')<=n) {
-            s = to_string(n) + s;
-            flag = false;
-        }
-        for(int j = 0; j<d-1 && flag; j++) {
-            if((s[j]-'0')>n && (s[j+1]-'0')<=n && (s[j+2]-'0')<=n) {
-                s.insert(j+1,to_string(n));
-                flag = false;
+        
+        for(int j = 0; j<d; j++) {
+            if(s[j] < n) {
+                s.insert(j, to_string(n));
                 break;
             }
         }
-        if(flag) {
-            if(d>=2 && (s[d-2]-'0')>n && (s[d-1]-'0')<=n ) {
-                s.insert(d-1,to_string(n));
-            }
-            else{
-                s = s + to_string(n);}
-            }
+        if(s.size() == d) {
+            s += n;
+        }
 
         cout<<s<<endl;
 
