@@ -13,7 +13,7 @@ int main(){
         
         for(int j = 0; j<d; j++) {
             if(s[j] < n) {
-                s.insert(j, to_string(n));
+                s.insert(s.begin()+ j, n);
                 break;
             }
         }
