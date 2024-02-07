@@ -9,13 +9,12 @@ int main(){
         cin>>tmp;
         num += tmp;
     }
-    int t = num/(n+1);
-    ++t;
-    if(t*(n+1) + 1 == num) {
-        cout<<2<<endl;
+    int t = 0;
+    for(int i = 1; i<=5; i++) {
+        if((num + i) % (n+1) != 1) {
+            t++;
+        }
     }
-    else {
-        cout<<1<<endl;;
-    }
+    cout<<t<<endl;
     return 0;
 }
