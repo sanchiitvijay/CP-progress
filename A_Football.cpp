@@ -1,20 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
-    int n;
-    cin>>n;
-    unordered_map<string ,int> mp;
-    int cnt = 0;
-    string ans = "";
-    while(n--) {
-        string tmp;
-        cin>>tmp;
-        mp[tmp]++;
-        if(mp[tmp]> cnt) {
-            cnt = mp[tmp];
-            ans = tmp;
+    string s;
+    cin>>s;
+    int cnt = 1;
+    for(int i = 1; i<s.size(); i++) {
+        if(s[i-1] == s[i]) cnt++;
+        else cnt = 1;
+        if(cnt == 7) {
+            cout<<"YES"<<endl;
+            return 0;
         }
     }
-    cout<<ans<<endl;
+    cout<<"NO"<<endl;
     return 0;
 }
