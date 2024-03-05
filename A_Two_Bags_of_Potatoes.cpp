@@ -4,16 +4,17 @@ int main(){
     int y,k,n;
     cin>>y>>k>>n;
     bool flag = true;
-    int i = 1;
-    for(; i+y<=n; i++) {
-        if((i+y)%k == 0) {
-            flag = false;
-            break;
+    vector<int> v;
+    int i = n - (n%k) - y;
+    for(; i>0; i-=k) {
+        v.push_back(i);
+    }
+    
+    if(v.size() == 0) cout<<-1<<endl;
+    else {
+        for(int i = v.size()-1; i>=0; i--) {
+            cout<<v[i]<<" ";
         }
     }
-    for(; i+y<=n; i+=k) {
-        cout<<i<<" ";
-    }
-    if(flag) cout<<-1<<endl;
     return 0;
 }
