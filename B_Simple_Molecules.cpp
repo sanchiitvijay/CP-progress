@@ -1,16 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
-    int a,b,c;
-    cin>>a>>b>>c;
-    for(int i = 0; i<=a; i++) {
-        for(int j = 0; j<=b; j++) {
-            if(i + j == c && a - i == b - j) {
-                cout<< a- i <<" "<<j<<" "<<i<<endl;
-                return 0;
-            }
-        }
+    int a, b, c;
+    scanf("%d%d%d", &a, &b, &c);
+
+    int sum = a + b + c;
+
+    if(sum % 2 == 0)
+    {
+        sum /= 2;
+        int x = sum - c;
+        int y = sum - a;
+        int z = sum - b;
+
+        if(x >= 0 && y >= 0 && z >= 0)
+            printf("%d %d %d\n", x, y, z);
+        else
+            printf("Impossible\n");
     }
-    cout<<"Impossible"<<endl;
+    else
+        printf("Impossible\n");
     return 0;
 }
